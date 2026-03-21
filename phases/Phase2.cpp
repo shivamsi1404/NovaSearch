@@ -95,7 +95,7 @@ int main()
 /*
 
 With this Upgrade , this program now Searches a word throughout all the files and count 
-them , along with the function of cleaner . This Marks the beggining of crazy stuff and
+them , along with the function of cleaner . This Marks the beginning of crazy stuff and
 the end of Phase 2.
 With regards,
 Shivam Singh 

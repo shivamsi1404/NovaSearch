@@ -197,8 +197,6 @@ int main()
 }
 
 /*
-At this level This project lacks multiple words search character search
-and number search which we will take care in the next chapter
 With this I mark the end of Phase 3
 With Regards ,
 Shivam Singh  
