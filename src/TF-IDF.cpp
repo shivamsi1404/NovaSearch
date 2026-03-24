@@ -154,7 +154,7 @@ string calluser()
 
 // Function 6 - TF IDF Scoring System  
 
-map<string, double> Globalscore(vector<string> &QueryWords, map<string, map<string, int>> &index , int totaldocuments)
+map<string, double> TFIDFscore(vector<string> &QueryWords, map<string, map<string, int>> &index , int totaldocuments)
 {
     map<string, double> Finalscore;
     for (const string &word : QueryWords)
@@ -277,7 +277,7 @@ int main(int argc, char const *argv[])
 
             // creat a map that saves the score of every query word
 
-            map<string, double> GlobalWordScore = Globalscore(QueryWords, index, totaldocuments);
+            map<string, double> GlobalWordScore = TFIDFscore(QueryWords, index, totaldocuments);
 
             // convert the map to vector to record and display final result
 
