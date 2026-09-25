@@ -1,8 +1,7 @@
 // Core implementation of NovaSearch 
 #include "NovaSearch.h"
-#include <iostream>
 
-void helloNovaSearch()
+NovaSearch::NovaSearch()
 {
-    std::cout << "NovaSearch core initialized\n";
+    
 }

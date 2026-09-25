@@ -1,3 +1,7 @@
 #pragma once 
 
-void helloNovaSearch();
+class NovaSearch
+{
+    public:
+    NovaSearch();
+};
