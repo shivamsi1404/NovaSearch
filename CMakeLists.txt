@@ -8,6 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_executable(NovaSearch
     app/main.cpp
     src/NovaSearch.cpp
+    src/tokenizer.cpp
 )
 
 target_include_directories(NovaSearch PRIVATE include)
