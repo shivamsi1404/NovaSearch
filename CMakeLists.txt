@@ -12,3 +12,11 @@ add_executable(NovaSearch
 )
 
 target_include_directories(NovaSearch PRIVATE include)
+
+# Tokenizer tests
+add_executable(test_tokenizer
+    tests/test_tokenizer.cpp
+    src/tokenizer.cpp
+)
+
+target_include_directories(test_tokenizer PRIVATE include)
