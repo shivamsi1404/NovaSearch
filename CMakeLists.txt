@@ -20,3 +20,12 @@ add_executable(test_tokenizer
 )
 
 target_include_directories(test_tokenizer PRIVATE include)
+
+# Enable testing
+enable_testing()
+
+# Register tokenizer test
+add_test(
+    NAME TokenizerTest
+    COMMAND test_tokenizer
+)
