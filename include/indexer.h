@@ -1,44 +1,49 @@
-
 #pragma once
 
 #include <string>
 #include <vector>
 #include <unordered_map>
+#include <cstddef>
 
-struct Posting {
-    int documentID;
-    int termFrequency;
-};
-
-struct DocumentInfo {
-    int documentLength;
-};
+#include "tokenizer.h"
 
 class Indexer {
 private:
-    // Term -> documents containing that term
+    // Represents a term's occurrence in a document
+    struct Posting {
+        int docId;
+        int termFrequency;
+    };
+
+    // Stores metadata associated with a document
+    struct DocumentInfo {
+        int documentLength;
+        std::vector<std::string> terms;
+    };
+
+    // Term -> list of documents containing that term
     std::unordered_map<std::string, std::vector<Posting>> invertedIndex;
 
     // Document ID -> document metadata
     std::unordered_map<int, DocumentInfo> documents;
 
-    // Term -> number of documents containing that term
+    // Term -> number of documents containing the term
     std::unordered_map<std::string, int> documentFrequency;
 
-    // Total number of tokens across indexed documents
+    // Collection statistics
+    int totalDocuments = 0;
     long long totalDocumentLength = 0;
 
+    // Tokenizes document content
+    Tokenizer tokenizer;
+
 public:
-    // Add a document to the index
-    void addDocument(int documentID, const std::string& content);
+    // Document management
+    bool addDocument(int docId, const std::string& text);
+    bool removeDocument(int docId);
+    bool updateDocument(int docId, const std::string& text);
 
-    // Remove a document from the index
-    void removeDocument(int documentID);
-
-    // Retrieve the total number of indexed documents
-    size_t getDocumentCount() const;
-
-    // Retrieve the average document length
+    // Collection statistics
+    std::size_t getDocumentCount() const;
     double getAverageDocumentLength() const;
-
 };
