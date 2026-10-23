@@ -1,20 +1,19 @@
 #include "tokenizer.h"
 
-// Tokenization is the process of breaking a piece of text into smaller units called tokens.
-
-// control flow
-
-// we can use string stream to go through the entire sentence and as its nature it parse through words divided by spaces and we can store those in a vector
-
-// Input text → string stream → extract words → vector of tokens
-
-// next process is to remove the punctuations from entire sentence
-
+#include <cctype>
 #include <sstream>
 
-#include <cctype>
+// Tokenization is the process of breaking text into smaller units called tokens.
+//
+// Control flow:
+// Input text -> string stream -> extract words -> normalize -> vector of tokens
+//
+// Normalization:
+// 1. Remove punctuation and non-alphanumeric characters.
+// 2. Convert uppercase characters to lowercase.
+// 3. Ignore empty tokens.
 
-std::vector<std::string> Tokenizer::tokenize(const std::string &text)
+std::vector<std::string> Tokenizer::tokenize(const std::string& text)
 {
     std::vector<std::string> tokens;
     std::istringstream stream(text);
@@ -30,10 +29,6 @@ std::vector<std::string> Tokenizer::tokenize(const std::string &text)
             {
                 normalized += static_cast<char>(std::tolower(ch));
             }
-
-            // std::tolower(ch) converts an uppercase character to lowercase, if applicable. It returns an int, not a char.
-
-            // static_cast<char>(...) explicitly converts that returned integer into a char.
         }
 
         if (!normalized.empty())
